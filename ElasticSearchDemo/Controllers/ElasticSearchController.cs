@@ -20,6 +20,10 @@ namespace ElasticSearchDemo.Controllers
         {
             this.elasticClient = elasticClient;
         }
+        /// <summary>
+        /// Gets all the data from specific index(users).
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IEnumerable<UserDTO>> GetAll()
         {
@@ -138,7 +142,7 @@ namespace ElasticSearchDemo.Controllers
             return response?.Documents;
         }
         /// <summary>
-        /// Getting all data with specific fields(using "source").
+        /// Getting all the data with specific fields(using "source").
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -168,6 +172,11 @@ namespace ElasticSearchDemo.Controllers
 
             return response?.Documents;
         }
+        /// <summary>
+        /// Get using boolean OR operator fields.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IEnumerable<Dynamic>> GetUsingBoolOperators(string query)
         {
@@ -184,6 +193,11 @@ namespace ElasticSearchDemo.Controllers
             ;
             return response?.Documents;
         }
+        /// <summary>
+        /// Gets the data searching from multiple fields.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IEnumerable<Dynamic>> GetUsingBooleanMultimatch(string query)
         {
@@ -201,6 +215,11 @@ namespace ElasticSearchDemo.Controllers
 
             return response?.Documents;
         }
+        /// <summary>
+        /// Get using wildcard operators.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IEnumerable<Dynamic>> GetUsingWildcardMultipleFields(string query)
         {
@@ -216,6 +235,11 @@ namespace ElasticSearchDemo.Controllers
             );
             return res?.Documents;
         } 
+        /// <summary>
+        /// Gets the data from multiple fields using wildcard queries. 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IEnumerable<Dynamic>> GetUsingAnalyzeWildcard(string query)
         {
